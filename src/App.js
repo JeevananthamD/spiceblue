@@ -8,14 +8,13 @@ function App() {
   return (
     <>
       <Switch>
-        <Route exact path="/spiceblue/login"><Login /></Route>
-        <Route exact path="/spiceblue/dashboard">
+        <Route exact path="/login"><Login /></Route>
+        <Route exact path="/dashboard">
           <Layout>
             <Tasks />
           </Layout>
         </Route>
-        <Redirect exact from="/spiceblue" to="/spiceblue/login"/>
-        <Redirect exact from="/" to="/spiceblue/login"/>
+        <Redirect exact from="/" to="/login"/>
       </Switch>
     </>
   );

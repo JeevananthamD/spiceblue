@@ -41,9 +41,9 @@ function Login(props) {
         }
         console.log(loginData);
     }
-    // console.log(JSON.parse(localStorage.getItem("auth_token_jeeva")));
+    
     if(JSON.parse(localStorage.getItem("auth_token_jeeva"))) {
-        history.push("/spiceblue/dashboard");
+        history.push("/dashboard");
         return<></>
     }
 

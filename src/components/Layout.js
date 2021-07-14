@@ -32,7 +32,7 @@ function Layout(props) {
     }
 
     if(!JSON.parse(localStorage.getItem("auth_token_jeeva"))) {
-        history.push("/spiceblue/login");
+        history.push("/login");
         return<></>
     }
 
