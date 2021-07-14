@@ -19,13 +19,8 @@ function Items({ data, icon, handleEdit, updateStatus }) {
                     </div>
                     <div className="item_time">
                         <span>{task_date}</span>
-                        {(task_time) ?
-                            <>
-                                <span>at</span>
-                                <span>{formatTime(task_time)}</span>
-                            </>
-                            : ""
-                        }
+                        <span>at</span>
+                        <span>{formatTime(task_time)}</span>
                     </div>
                 </div>
                 <div className="item_editing">

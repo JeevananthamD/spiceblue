@@ -61,7 +61,7 @@ function reducer(state = initialState, action = {}) {
                 defaultDate = `${dateArr[0]}-${(dateArr[1] < 10) ? 0 : ''}${dateArr[1]}-${(dateArr[2] < 10) ? 0 : ''}${dateArr[2]}`;
                 stateCopy.description = "Follow Up";
                 stateCopy.date = defaultDate;
-                stateCopy.time = "";
+                stateCopy.time = 0;
                 stateCopy.isValid = true;
                 stateCopy.idState = null;
                 stateCopy.assignedUser = stateCopy.teamData[0].id;
