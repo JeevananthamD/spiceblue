@@ -1,0 +1,14 @@
+:root {
+    --border: rgb(225, 225, 225);
+    --profile: 32px;
+    --edit: 52px;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+}

@@ -1,0 +1,37 @@
+
+.task_container {
+    padding: 50px 0 0 20px;
+    width: 320px;
+    position: relative;
+}
+
+.task_header {
+    height: 35px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid var(--border);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.task {
+    height: 100%;
+    background-color: #f9f9fa;
+    width: calc(350px - 30px);
+    border-right: 1px solid var(--border);
+    display: flex;
+    text-align: left;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.task_add {
+    height: 100%;
+    width: 30px;
+    background-color: #f9f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
