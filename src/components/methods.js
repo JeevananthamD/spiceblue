@@ -57,11 +57,13 @@ export function requestBody(props) {
 }
 
 export function formatTime(time) {
-    if(!time) return "00:00";
     let hours = Math.floor(time / (60 * 60));
     let minutes = (time % (60 * 60)) / 60;
+    let p = (hours >= 12)? "PM": "AM";
+    hours = (hours > 12)? hours % 12: hours;
+    hours = (hours == 0)? 12: hours;
     hours = (hours < 10) ? `0${hours}` : hours;
     minutes = (minutes < 10) ? `0${minutes}` : minutes;
-    return `${hours}:${minutes}`;
+    return `${hours}:${minutes} ${p}`;
 }
 

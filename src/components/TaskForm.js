@@ -13,6 +13,7 @@ import {
     handleUser
 } from "../components/redux/constant";
 import { requestBody, apiCall, formatTime } from "./methods";
+import { TimePickerComponent } from "@syncfusion/ej2-react-calendars";
 
 function mapStateToProps(state) {
     return {
@@ -34,9 +35,9 @@ function mapDispatchToProps(dispatch) {
         handleDescription: e => dispatch(actionGenerator(handleDescription, e.target.value)),
         handleDate: e => dispatch(actionGenerator(handleDate, e.target.value)),
         handleTime: e => {
-            let timeStr = e.target.value;
-            let hours = timeStr.substr(0, 2);
-            let minutes = timeStr.substr(3, 2);
+            let timeStr = e.target.value.toString();
+            let hours = timeStr.substr(16, 2);
+            let minutes = timeStr.substr(19, 2);
             let seconds = ((parseInt(hours) * 60) + parseInt(minutes)) * 60;
             return dispatch(actionGenerator(handleTime, seconds));
         },
@@ -72,24 +73,26 @@ function TaskForm(props) {
         let task = requestBody(props);
         if (!props.idState) {
             await apiCall(token, "POST", task)
-            .catch(err => console.log(err));
+                .catch(err => console.log(err));
         }
         else {
             task.is_completed = props.isComplete;
             await apiCall(token, "PUT", task, props.idState)
-            .catch(err => console.log(err))
+                .catch(err => console.log(err))
         }
         let tasksRes = await apiCall(token, "GET")
-        .catch(err => console.log(err));
+            .catch(err => console.log(err));
         handleSubmit(tasksRes.results);
     }
 
     async function deleteTask() {
-        let token = JSON.parse(localStorage.getItem("auth_token_jeeva"));
-        await apiCall(token, "DELETE", {}, idState)
-        .catch(err => console.log(err));
-        let tasksRes = await apiCall(token, "GET");
-        handleDelete(tasksRes.results);
+        if (window.confirm("Are you sure you want to delete this Task?")) {
+            let token = JSON.parse(localStorage.getItem("auth_token_jeeva"));
+            await apiCall(token, "DELETE", {}, idState)
+                .catch(err => console.log(err));
+            let tasksRes = await apiCall(token, "GET");
+            handleDelete(tasksRes.results);
+        }
     }
 
     return (
@@ -106,7 +109,7 @@ function TaskForm(props) {
                 </div>
                 <div className="time">
                     <label htmlFor="time">Time</label>
-                    <input id="time" type="time" onChange={handleTime} value={formatTime(time)}/>
+                    <TimePickerComponent id="time" style={{ fontSize: "16px" }} onChange={handleTime} value={formatTime(time)} />
                 </div>
             </div>
             <div className="assign_user">

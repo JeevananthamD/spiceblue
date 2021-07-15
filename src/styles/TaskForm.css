@@ -15,20 +15,18 @@
 }
 
 .task_form input {
-    height: 25px;
+    height: 32px;
     border: 1px solid var(--border);
     display: block;
     width: 100%;
     border-radius: 4px;
+    padding-left: 4px;
 }
 
 .date_time {
-    display: flex;
-    justify-content: space-between;
-}
-
-.date_time > * {
-    flex-basis: 49%;
+    display: grid;
+    grid-template-columns: 53% 45%;
+    column-gap: 2%;
 }
 
 .button_container {
